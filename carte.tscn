@@ -1,0 +1,1843 @@
+[gd_scene load_steps=8 format=3 uid="uid://bubyrnd21omu6"]
+
+[ext_resource type="Texture2D" uid="uid://ce0v7v8vofqye" path="res://assets/maps/m_paris_vierge_large.jpg" id="1_nrbkr"]
+[ext_resource type="Script" path="res://scripts/GameState.gd" id="1_secbn"]
+[ext_resource type="Script" path="res://scripts/station.gd" id="2_0yunv"]
+[ext_resource type="AudioStream" uid="uid://s7ho7q1oopcc" path="res://assets/sounds/error-5-199276.mp3" id="5_g0up5"]
+[ext_resource type="Script" path="res://scripts/leader_board_page.gd" id="5_jojgj"]
+[ext_resource type="AudioStream" uid="uid://ck85vru5f2ptq" path="res://assets/sounds/level-up-3-199576.mp3" id="6_68hms"]
+[ext_resource type="Script" path="res://scripts/EndScreen.gd" id="8_ommto"]
+
+[node name="MapScene" type="Node2D"]
+position = Vector2(687, 331)
+script = ExtResource("1_secbn")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 120.0
+one_shot = true
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="Page" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = 24.0
+offset_right = -25.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Header" type="HBoxContainer" parent="CanvasLayer/Page"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="StationLabel" type="Label" parent="CanvasLayer/Page/Header"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+text = "Station"
+
+[node name="TimerLabel" type="Label" parent="CanvasLayer/Page/Header"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 50
+text = "Timer"
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer/Page/Header"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 50
+text = "Score"
+
+[node name="Map" type="HBoxContainer" parent="CanvasLayer/Page"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Page/Map"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+texture = ExtResource("1_nrbkr")
+stretch_mode = 2
+
+[node name="Stations" type="Node2D" parent="CanvasLayer"]
+position = Vector2(654, 394)
+
+[node name="Dausmenil" type="Button" parent="CanvasLayer/Stations"]
+offset_left = 1.0
+offset_top = 68.0
+offset_right = 9.0
+offset_bottom = 76.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Dausmenil"
+
+[node name="Picpus" type="Button" parent="CanvasLayer/Stations"]
+offset_left = 31.0
+offset_top = 45.0
+offset_right = 39.0
+offset_bottom = 53.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Picpus"
+
+[node name="BelAir" type="Button" parent="CanvasLayer/Stations"]
+offset_left = 13.0
+offset_top = 58.0
+offset_right = 21.0
+offset_bottom = 66.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Bel-Air"
+
+[node name="Dugommier" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -22.0
+offset_top = 81.0
+offset_right = -14.0
+offset_bottom = 89.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Dugommier"
+
+[node name="Bercy" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -39.0
+offset_top = 95.0
+offset_right = -31.0
+offset_bottom = 103.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Bercy"
+
+[node name="QuaiDeLaGare" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -69.0
+offset_top = 118.0
+offset_right = -61.0
+offset_bottom = 126.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Quai de la Gare"
+
+[node name="Chevaleret" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -99.0
+offset_top = 125.0
+offset_right = -91.0
+offset_bottom = 133.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Chevaleret"
+
+[node name="Nationale" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -128.0
+offset_top = 126.0
+offset_right = -120.0
+offset_bottom = 134.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Nationale"
+
+[node name="PlaceDItalie" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -158.0
+offset_top = 125.0
+offset_right = -148.0
+offset_bottom = 134.0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_disabled_color = Color(0.713726, 0, 0, 1)
+theme_override_colors/font_color = Color(0.815686, 0, 0, 1)
+script = ExtResource("2_0yunv")
+station_name = "Place d'Italie"
+
+[node name="Corvisart" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -175.0
+offset_top = 126.0
+offset_right = -167.0
+offset_bottom = 134.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Corvisart"
+
+[node name="Glaciere" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -204.0
+offset_top = 126.0
+offset_right = -196.0
+offset_bottom = 134.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Glacière"
+
+[node name="SaintJacques" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -227.0
+offset_top = 119.0
+offset_right = -219.0
+offset_bottom = 127.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Saint-Jacques"
+
+[node name="EdgarQuinet" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -293.0
+offset_top = 88.0
+offset_right = -285.0
+offset_bottom = 96.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Dausmenil"
+
+[node name="PorteDOrleans" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -267.0
+offset_top = 155.0
+offset_right = -259.0
+offset_bottom = 163.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Porte d'Orléans"
+
+[node name="Alesia" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -250.0
+offset_top = 145.0
+offset_right = -242.0
+offset_bottom = 153.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Alésia"
+
+[node name="MoutonDuvernet" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -244.0
+offset_top = 125.0
+offset_right = -236.0
+offset_bottom = 133.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Mouton-Duvernet"
+
+[node name="DenfertRochereau" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -242.0
+offset_top = 104.0
+offset_right = -231.0
+offset_bottom = 116.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Denfert-Rochereau"
+
+[node name="Raspail" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -256.0
+offset_top = 92.0
+offset_right = -248.0
+offset_bottom = 100.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Raspail"
+
+[node name="MontparnasseBienvenue" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -309.0
+offset_top = 84.0
+offset_right = -295.0
+offset_bottom = 94.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Montparnasse-Bienvenue"
+
+[node name="Vavin" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -277.0
+offset_top = 85.0
+offset_right = -269.0
+offset_bottom = 93.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Vavin"
+
+[node name="SaintPlacide" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -302.0
+offset_top = 64.0
+offset_right = -294.0
+offset_bottom = 72.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Saint-Placide"
+
+[node name="SaintSulpice" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -302.0
+offset_top = 43.0
+offset_right = -294.0
+offset_bottom = 51.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Saint-Sulpice"
+
+[node name="SaintGermainDesPres" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -294.0
+offset_top = 27.0
+offset_right = -286.0
+offset_bottom = 35.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Saint-Germain-Des-Prés"
+
+[node name="Odeon" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -256.0
+offset_top = 26.0
+offset_right = -248.0
+offset_bottom = 37.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Odéon"
+
+[node name="Cite" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -237.0
+offset_top = -8.0
+offset_right = -229.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Cité"
+
+[node name="CampoFormio" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -135.0
+offset_top = 105.0
+offset_right = -127.0
+offset_bottom = 113.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Campo-Formio"
+
+[node name="SaintMarcel" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -120.0
+offset_top = 92.0
+offset_right = -112.0
+offset_bottom = 100.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Saint-Marcel"
+
+[node name="GareDAusterlitz" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -124.0
+offset_top = 74.0
+offset_right = -112.0
+offset_bottom = 83.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Gare D'Austerlitz"
+
+[node name="QuaiDeLaRapee" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -121.0
+offset_top = 44.0
+offset_right = -113.0
+offset_bottom = 52.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Quai De La Rapée"
+
+[node name="Bastille" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -121.0
+offset_top = -2.0
+offset_right = -113.0
+offset_bottom = 10.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Bastille"
+
+[node name="BreguetSabin" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -103.0
+offset_top = -20.0
+offset_right = -95.0
+offset_bottom = -12.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Breguet-Sabin"
+
+[node name="RichardLenoir" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -84.0
+offset_top = -33.0
+offset_right = -76.0
+offset_bottom = -25.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Richard-Lenoir"
+
+[node name="HotelDeVille" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -189.0
+offset_top = -28.0
+offset_right = -181.0
+offset_bottom = -20.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Hôtel de Ville"
+
+[node name="Rambuteau" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -166.0
+offset_top = -44.0
+offset_right = -158.0
+offset_bottom = -36.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Rambuteau"
+
+[node name="ArtsEtMetiers" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -147.0
+offset_top = -63.0
+offset_right = -135.0
+offset_bottom = -52.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Arts et Métiers"
+
+[node name="Goncourt" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -84.0
+offset_top = -101.0
+offset_right = -76.0
+offset_bottom = -93.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Goncourt"
+
+[node name="Belleville" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -67.0
+offset_top = -114.0
+offset_right = -59.0
+offset_bottom = -106.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Belleville"
+
+[node name="PorteDauphine" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -547.0
+offset_top = -92.0
+offset_right = -539.0
+offset_bottom = -84.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Porte Dauphine"
+
+[node name="VictorHugo" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -517.0
+offset_top = -70.0
+offset_right = -509.0
+offset_bottom = -62.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Victor Hugo"
+
+[node name="Ternes" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -451.0
+offset_top = -110.0
+offset_right = -443.0
+offset_bottom = -102.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Ternes"
+
+[node name="Courcelles" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -432.0
+offset_top = -125.0
+offset_right = -424.0
+offset_bottom = -117.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Courcelles"
+
+[node name="Monceau" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -413.0
+offset_top = -138.0
+offset_right = -405.0
+offset_bottom = -130.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Monceau"
+
+[node name="Villiers" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -393.0
+offset_top = -152.0
+offset_right = -385.0
+offset_bottom = -144.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Villiers"
+
+[node name="Rome" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -372.0
+offset_top = -167.0
+offset_right = -364.0
+offset_bottom = -159.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Rome"
+
+[node name="Blanche" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -302.0
+offset_top = -171.0
+offset_right = -294.0
+offset_bottom = -163.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Blanche"
+
+[node name="Pigalle" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -258.0
+offset_top = -171.0
+offset_right = -250.0
+offset_bottom = -163.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Pigalle"
+
+[node name="Anvers" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -224.0
+offset_top = -172.0
+offset_right = -216.0
+offset_bottom = -164.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Anvers"
+
+[node name="LaChapelle" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -142.0
+offset_top = -171.0
+offset_right = -134.0
+offset_bottom = -163.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "La Chapelle"
+
+[node name="ColonelFabien" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -68.0
+offset_top = -134.0
+offset_right = -60.0
+offset_bottom = -126.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Colonel Fabien"
+
+[node name="Couronnes" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -48.0
+offset_top = -95.0
+offset_right = -40.0
+offset_bottom = -87.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Couronnes"
+
+[node name="Menilmontant" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -26.0
+offset_top = -80.0
+offset_right = -18.0
+offset_bottom = -72.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Ménilmontant"
+
+[node name="MairieDeMontreuil" type="Button" parent="CanvasLayer/Stations"]
+offset_left = 91.0
+offset_top = -35.0
+offset_right = 99.0
+offset_bottom = -27.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Mairie de Montreuil"
+
+[node name="CroixDeChavaux" type="Button" parent="CanvasLayer/Stations"]
+offset_left = 82.0
+offset_top = -28.0
+offset_right = 90.0
+offset_bottom = -20.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Croix de Chavaux"
+
+[node name="Robespierre" type="Button" parent="CanvasLayer/Stations"]
+offset_left = 71.0
+offset_top = -20.0
+offset_right = 79.0
+offset_bottom = -12.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Robespierre"
+
+[node name="PorteDeMontreuil" type="Button" parent="CanvasLayer/Stations"]
+offset_left = 57.0
+offset_top = -10.0
+offset_right = 65.0
+offset_bottom = -2.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Porte de Montreuil"
+
+[node name="Maraichers" type="Button" parent="CanvasLayer/Stations"]
+offset_left = 47.0
+offset_top = -3.0
+offset_right = 55.0
+offset_bottom = 5.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Maraîchers"
+
+[node name="Buzenval" type="Button" parent="CanvasLayer/Stations"]
+offset_left = 36.0
+offset_top = 5.0
+offset_right = 44.0
+offset_bottom = 13.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Buzenval"
+
+[node name="RueDesBoulets" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -12.0
+offset_top = -3.0
+offset_right = -4.0
+offset_bottom = 5.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Rue des Boulets"
+
+[node name="Charonne" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -26.0
+offset_top = -14.0
+offset_right = -18.0
+offset_bottom = -6.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Charonne"
+
+[node name="Voltaire" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -42.0
+offset_top = -25.0
+offset_right = -34.0
+offset_bottom = -17.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Voltaire"
+
+[node name="SaintAmbroise" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -57.0
+offset_top = -36.0
+offset_right = -49.0
+offset_bottom = -28.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Saint-Ambroise"
+
+[node name="BonneNouvelle" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -197.0
+offset_top = -90.0
+offset_right = -189.0
+offset_bottom = -82.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Bonne Nouvelle"
+
+[node name="GrandsBoulevards" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -241.0
+offset_top = -91.0
+offset_right = -233.0
+offset_bottom = -79.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Grands Boulevards"
+
+[node name="RichelieuDrouot" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -269.0
+offset_top = -90.0
+offset_right = -261.0
+offset_bottom = -78.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Richelieu-Drouot"
+
+[node name="ChausseeDAntinLaFayette" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -296.0
+offset_top = -91.0
+offset_right = -288.0
+offset_bottom = -83.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Chaussée d'Antin La Fayette"
+
+[node name="HavreCaumartin" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -335.0
+offset_top = -91.0
+offset_right = -327.0
+offset_bottom = -83.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Havre-Caumartin"
+
+[node name="SaintAugustin" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -366.0
+offset_top = -101.0
+offset_right = -358.0
+offset_bottom = -93.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Saint-Augustin"
+
+[node name="SaintPhilippeDuRoule" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -395.0
+offset_top = -78.0
+offset_right = -387.0
+offset_bottom = -70.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Saint-Philippe-du-Roule"
+
+[node name="FranklinDRoosvelt" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -423.0
+offset_top = -59.0
+offset_right = -415.0
+offset_bottom = -51.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Franklin D. Roosevelt"
+
+[node name="AlmaMarceau" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -452.0
+offset_top = -38.0
+offset_right = -444.0
+offset_bottom = -30.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Alma - Marceau"
+
+[node name="Iena" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -492.0
+offset_top = -28.0
+offset_right = -484.0
+offset_bottom = -20.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Iena"
+
+[node name="RueDeLaPompe" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -563.0
+offset_top = -26.0
+offset_right = -555.0
+offset_bottom = -18.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Rue de la Pompe"
+
+[node name="LaMuette" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -569.0
+offset_top = 1.0
+offset_right = -561.0
+offset_bottom = 9.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "La Muette"
+
+[node name="Ranelagh" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -567.0
+offset_top = 25.0
+offset_right = -559.0
+offset_bottom = 33.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Ranelagh"
+
+[node name="Jasmin" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -568.0
+offset_top = 51.0
+offset_right = -560.0
+offset_bottom = 59.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Jasmin"
+
+[node name="MichelAngeAuteuil" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -568.0
+offset_top = 75.0
+offset_right = -560.0
+offset_bottom = 83.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Michel-Ange - Auteuil"
+
+[node name="MichelAngeMolitor" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -568.0
+offset_top = 89.0
+offset_right = -560.0
+offset_bottom = 97.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Michel-Ange - Molitor"
+
+[node name="Exelmans" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -567.0
+offset_top = 110.0
+offset_right = -559.0
+offset_bottom = 118.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Exelmans"
+
+[node name="PorteDeSaintCloud" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -567.0
+offset_top = 127.0
+offset_right = -559.0
+offset_bottom = 135.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Porte de Saint-Cloud"
+
+[node name="MarcelSembat" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -576.0
+offset_top = 138.0
+offset_right = -568.0
+offset_bottom = 146.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Marcel Sembat"
+
+[node name="Billancourt" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -597.0
+offset_top = 155.0
+offset_right = -589.0
+offset_bottom = 163.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Billancourt"
+
+[node name="PontDeSevres" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -610.0
+offset_top = 163.0
+offset_right = -602.0
+offset_bottom = 171.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Pont de Sèvres"
+
+[node name="PereLachaise" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -4.0
+offset_top = -59.0
+offset_right = 4.0
+offset_bottom = -51.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Père Lachaise"
+
+[node name="Gallieni" type="Button" parent="CanvasLayer/Stations"]
+offset_left = 90.0
+offset_top = -59.0
+offset_right = 98.0
+offset_bottom = -51.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Gallieni"
+
+[node name="PorteDeBagnolet" type="Button" parent="CanvasLayer/Stations"]
+offset_left = 71.0
+offset_top = -59.0
+offset_right = 79.0
+offset_bottom = -51.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Porte de Bagnolet"
+
+[node name="Gambetta" type="Button" parent="CanvasLayer/Stations"]
+offset_left = 31.0
+offset_top = -59.0
+offset_right = 39.0
+offset_bottom = -51.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Gambetta"
+
+[node name="RueSaintMaur" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -29.0
+offset_top = -59.0
+offset_right = -21.0
+offset_bottom = -51.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Rue Saint-Maur"
+
+[node name="Parmentier" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -47.0
+offset_top = -67.0
+offset_right = -39.0
+offset_bottom = -59.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Parmentier"
+
+[node name="Temple" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -131.0
+offset_top = -72.0
+offset_right = -123.0
+offset_bottom = -64.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Temple"
+
+[node name="Sentier" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -235.0
+offset_top = -57.0
+offset_right = -227.0
+offset_bottom = -49.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Sentier"
+
+[node name="Bourse" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -266.0
+offset_top = -57.0
+offset_right = -258.0
+offset_bottom = -49.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Bourse"
+
+[node name="QuatreSeptembre" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -297.0
+offset_top = -63.0
+offset_right = -289.0
+offset_bottom = -55.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Quatre-Septembre"
+
+[node name="Europe" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -371.0
+offset_top = -135.0
+offset_right = -363.0
+offset_bottom = -127.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Europe"
+
+[node name="Malesherbes" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -406.0
+offset_top = -160.0
+offset_right = -398.0
+offset_bottom = -152.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Malesherbes"
+
+[node name="Wagram" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -420.0
+offset_top = -170.0
+offset_right = -412.0
+offset_bottom = -162.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Wagram"
+
+[node name="Pereire" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -435.0
+offset_top = -177.0
+offset_right = -422.0
+offset_bottom = -169.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Pereire"
+
+[node name="PorteDeChamperret" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -444.0
+offset_top = -188.0
+offset_right = -436.0
+offset_bottom = -180.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Porte de Champerret"
+
+[node name="LouiseMichel" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -454.0
+offset_top = -195.0
+offset_right = -446.0
+offset_bottom = -187.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Louise Michel"
+
+[node name="AnatoleFrance" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -465.0
+offset_top = -202.0
+offset_right = -457.0
+offset_bottom = -194.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Anatole France"
+
+[node name="Opera" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -318.0
+offset_top = -78.0
+offset_right = -306.0
+offset_bottom = -69.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Opéra"
+
+[node name="PontDeLevalloisBecon" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -473.0
+offset_top = -209.0
+offset_right = -465.0
+offset_bottom = -201.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Pont de Levallois Bécon"
+
+[node name="PhilippeAuguste" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -4.0
+offset_top = -44.0
+offset_right = 4.0
+offset_bottom = -36.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Philippe Auguste"
+
+[node name="AlexandreDumas" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -4.0
+offset_top = -22.0
+offset_right = 4.0
+offset_bottom = -14.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Alexandre Dumas"
+
+[node name="Avron" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -3.0
+offset_right = 5.0
+offset_bottom = 8.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Avron"
+
+[node name="Pyrenees" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -39.0
+offset_top = -122.0
+offset_right = -31.0
+offset_bottom = -114.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Pyrénées"
+
+[node name="Jourdain" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -5.0
+offset_top = -123.0
+offset_right = 3.0
+offset_bottom = -115.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Jourdain"
+
+[node name="PlaceDesFetes" type="Button" parent="CanvasLayer/Stations"]
+offset_left = 25.0
+offset_top = -124.0
+offset_right = 33.0
+offset_bottom = -116.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Places des Fêtes"
+
+[node name="Telegraphes" type="Button" parent="CanvasLayer/Stations"]
+offset_left = 52.0
+offset_top = -123.0
+offset_right = 60.0
+offset_bottom = -115.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Télégraphes"
+
+[node name="PorteDesLilas" type="Button" parent="CanvasLayer/Stations"]
+offset_left = 74.0
+offset_top = -128.0
+offset_right = 82.0
+offset_bottom = -115.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Porte des Lilas"
+
+[node name="MairieDesLilas" type="Button" parent="CanvasLayer/Stations"]
+offset_left = 93.0
+offset_top = -140.0
+offset_right = 101.0
+offset_bottom = -132.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Mairie Des Lilas"
+
+[node name="Madeleine" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -389.0
+offset_top = -57.0
+offset_right = -377.0
+offset_bottom = -49.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Madeleine"
+
+[node name="Pyramides" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -317.0
+offset_top = -53.0
+offset_right = -309.0
+offset_bottom = -45.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Pyramides"
+
+[node name="GareDeLyon" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -99.0
+offset_top = 45.0
+offset_right = -82.0
+offset_bottom = 61.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Gare De Lyon"
+
+[node name="CourSaintEmilion" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -25.0
+offset_top = 118.0
+offset_right = -17.0
+offset_bottom = 126.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Cour Saint-Émilion"
+
+[node name="BibliothequeFMitterand" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -42.0
+offset_top = 131.0
+offset_right = -34.0
+offset_bottom = 139.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Bibliothèque F. Mitterand"
+
+[node name="Olympiades" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -95.0
+offset_top = 139.0
+offset_right = -87.0
+offset_bottom = 147.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Olympiades"
+
+[node name="Oberkampf" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -98.0
+offset_top = -68.0
+offset_right = -90.0
+offset_bottom = -60.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Oberkampf"
+
+[node name="Republique" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -119.0
+offset_top = -83.0
+offset_right = -101.0
+offset_bottom = -69.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "République"
+
+[node name="JacquesBonsergent" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -131.0
+offset_top = -104.0
+offset_right = -123.0
+offset_bottom = -96.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Jacques Bonsergent"
+
+[node name="Stalingrad" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -93.0
+offset_top = -171.0
+offset_right = -85.0
+offset_bottom = -158.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Stalingrad"
+
+[node name="Jaures" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -72.0
+offset_top = -159.0
+offset_right = -60.0
+offset_bottom = -147.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Jaurès"
+
+[node name="Laumiere" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -50.0
+offset_top = -171.0
+offset_right = -42.0
+offset_bottom = -163.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Laumière"
+
+[node name="LouisBlanc" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -100.0
+offset_top = -155.0
+offset_right = -88.0
+offset_bottom = -143.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Louis Blanc"
+
+[node name="Bolivar" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -51.0
+offset_top = -145.0
+offset_right = -43.0
+offset_bottom = -137.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Bolivar"
+
+[node name="ButtesChaumont" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -20.0
+offset_top = -141.0
+offset_right = -12.0
+offset_bottom = -133.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Buttes Chaumont"
+
+[node name="Botzaris" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -2.0
+offset_top = -141.0
+offset_right = 6.0
+offset_bottom = -133.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Botzaris"
+
+[node name="PreSaintGervais" type="Button" parent="CanvasLayer/Stations"]
+offset_left = 43.0
+offset_top = -146.0
+offset_right = 51.0
+offset_bottom = -138.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Pré Saint-Gervais"
+
+[node name="Danube" type="Button" parent="CanvasLayer/Stations"]
+offset_left = 23.0
+offset_top = -155.0
+offset_right = 31.0
+offset_bottom = -147.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Danube"
+
+[node name="Ourcq" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -28.0
+offset_top = -179.0
+offset_right = -20.0
+offset_bottom = -171.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Ourcq"
+
+[node name="PorteDePantin" type="Button" parent="CanvasLayer/Stations"]
+offset_left = 2.0
+offset_top = -180.0
+offset_right = 10.0
+offset_bottom = -172.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Porte de Pantin"
+
+[node name="Hoche" type="Button" parent="CanvasLayer/Stations"]
+offset_left = 26.0
+offset_top = -179.0
+offset_right = 34.0
+offset_bottom = -171.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Hoche"
+
+[node name="EgliseDePantin" type="Button" parent="CanvasLayer/Stations"]
+offset_left = 61.0
+offset_top = -193.0
+offset_right = 69.0
+offset_bottom = -185.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Église de Pantin"
+
+[node name="BobignyPantin" type="Button" parent="CanvasLayer/Stations"]
+offset_left = 70.0
+offset_top = -200.0
+offset_right = 78.0
+offset_bottom = -192.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Bobigny - Pantin"
+
+[node name="BobignyPabloPicasso" type="Button" parent="CanvasLayer/Stations"]
+offset_left = 94.0
+offset_top = -216.0
+offset_right = 102.0
+offset_bottom = -208.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Bobigny - Pablo Picasso"
+
+[node name="LesHalles" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -222.0
+offset_top = -34.0
+offset_right = -207.0
+offset_bottom = -26.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Les Halles"
+
+[node name="EtienneMarcel" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -225.0
+offset_top = -49.0
+offset_right = -217.0
+offset_bottom = -41.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Etienne Marcel"
+
+[node name="ReaumurSebastopol" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -194.0
+offset_top = -55.0
+offset_right = -186.0
+offset_bottom = -45.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Réaumur - Sébastopol"
+
+[node name="StrasbourgSaintDenis" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -175.0
+offset_top = -91.0
+offset_right = -167.0
+offset_bottom = -81.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Strasbourg Saint-Denis"
+
+[node name="ChateauDEau" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -164.0
+offset_top = -116.0
+offset_right = -156.0
+offset_bottom = -108.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Château d'Eau"
+
+[node name="CharlesDeGaulleEtoile" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -475.0
+offset_top = -98.0
+offset_right = -461.0
+offset_bottom = -85.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Charles de Gaulle - Étoile"
+
+[node name="Kleber" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -500.0
+offset_top = -72.0
+offset_right = -492.0
+offset_bottom = -64.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Kléber"
+
+[node name="Boissiere" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -525.0
+offset_top = -55.0
+offset_right = -517.0
+offset_bottom = -47.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Boissière"
+
+[node name="Trocadero" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -528.0
+offset_top = -28.0
+offset_right = -520.0
+offset_bottom = -20.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Trocadéro"
+
+[node name="Passy" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -524.0
+offset_top = 5.0
+offset_right = -516.0
+offset_bottom = 13.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Passy"
+
+[node name="BirHakeim" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -500.0
+offset_top = 23.0
+offset_right = -492.0
+offset_bottom = 31.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Bir-Hakeim"
+
+[node name="Dupleix" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -480.0
+offset_top = 38.0
+offset_right = -472.0
+offset_bottom = 46.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Dupleix"
+
+[node name="LaMottePiquetGrenelle" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -449.0
+offset_top = 54.0
+offset_right = -441.0
+offset_bottom = 62.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "La Motte-Picquet-Grenelle"
+
+[node name="Cambronne" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -408.0
+offset_top = 64.0
+offset_right = -400.0
+offset_bottom = 72.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Cambronne"
+
+[node name="ChatillonMontrouge" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -387.0
+offset_top = 201.0
+offset_right = -379.0
+offset_bottom = 209.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Châtillon Montrouge"
+
+[node name="MalakoffRueEtienneDolet" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -387.0
+offset_top = 190.0
+offset_right = -379.0
+offset_bottom = 198.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Malakoff - Rue Étienne Dolet"
+
+[node name="MalakoffPlateauDeVanves" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -386.0
+offset_top = 173.0
+offset_right = -378.0
+offset_bottom = 181.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Malakoff - Plateau de Vanves"
+
+[node name="PorteDeVanves" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -366.0
+offset_top = 155.0
+offset_right = -358.0
+offset_bottom = 163.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Porte de Vanves"
+
+[node name="Plaisance" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -340.0
+offset_top = 137.0
+offset_right = -332.0
+offset_bottom = 145.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Plaisance"
+
+[node name="Pernety" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -320.0
+offset_top = 122.0
+offset_right = -312.0
+offset_bottom = 130.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Pernety"
+
+[node name="Gaite" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -308.0
+offset_top = 111.0
+offset_right = -300.0
+offset_bottom = 119.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Gaîté"
+
+[node name="Duroc" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -366.0
+offset_top = 62.0
+offset_right = -358.0
+offset_bottom = 70.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Duroc"
+
+[node name="SaintFrancoisXavier" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -393.0
+offset_top = 43.0
+offset_right = -385.0
+offset_bottom = 51.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Saint-François-Xavier"
+
+[node name="Varenne" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -406.0
+offset_top = 13.0
+offset_right = -398.0
+offset_bottom = 21.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Varenne"
+
+[node name="Invalides" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -407.0
+offset_top = -11.0
+offset_right = -399.0
+offset_bottom = -3.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Invalides"
+
+[node name="ChampsElyseeClemenceau" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -407.0
+offset_top = -46.0
+offset_right = -399.0
+offset_bottom = -38.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Champs-Élysées - Clemenceau"
+
+[node name="Miromesnil" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -379.0
+offset_top = -88.0
+offset_right = -371.0
+offset_bottom = -80.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Miromesnil"
+
+[node name="Liege" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -346.0
+offset_top = -149.0
+offset_right = -338.0
+offset_bottom = -141.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Liège"
+
+[node name="PlaceDeClichy" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -345.0
+offset_top = -171.0
+offset_right = -337.0
+offset_bottom = -163.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Place de Clichy"
+
+[node name="LaFourche" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -345.0
+offset_top = -186.0
+offset_right = -337.0
+offset_bottom = -178.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "La Fourche"
+
+[node name="Garibaldi" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -331.0
+offset_top = -237.0
+offset_right = -323.0
+offset_bottom = -229.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Garibaldi"
+
+[node name="PorteDeStOuen" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -345.0
+offset_top = -221.0
+offset_right = -337.0
+offset_bottom = -213.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Porte de St-Ouen"
+
+[node name="GuyMoquet" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -346.0
+offset_top = -205.0
+offset_right = -338.0
+offset_bottom = -197.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Guy Môquet"
+
+[node name="MairieDeStOuen" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -308.0
+offset_top = -253.0
+offset_right = -300.0
+offset_bottom = -245.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Mairie de St-Ouen"
+
+[node name="CarrefourPleyel" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -274.0
+offset_top = -264.0
+offset_right = -266.0
+offset_bottom = -256.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Carrefour Pleyel"
+
+[node name="SaintDenisPteDeParis" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -224.0
+offset_top = -263.0
+offset_right = -216.0
+offset_bottom = -255.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Saint-Denis - Pte de Paris"
+
+[node name="BasiliqueDeStDenis" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -204.0
+offset_top = -271.0
+offset_right = -196.0
+offset_bottom = -263.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Basilique de St-Denis"
+
+[node name="StDenisUniversite" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -191.0
+offset_top = -279.0
+offset_right = -183.0
+offset_bottom = -271.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "St-Denis Université"
+
+[node name="Brochant" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -365.0
+offset_top = -204.0
+offset_right = -357.0
+offset_bottom = -196.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Brochant"
+
+[node name="PorteDeClichy" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -382.0
+offset_top = -216.0
+offset_right = -374.0
+offset_bottom = -208.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Porte de Clichy"
+
+[node name="MairieDeClichy" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -413.0
+offset_top = -239.0
+offset_right = -405.0
+offset_bottom = -231.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Mairie de Clichy"
+
+[node name="GabrielPeri" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -443.0
+offset_top = -261.0
+offset_right = -435.0
+offset_bottom = -253.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Gabriel Péri"
+
+[node name="LesAgnettes" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -456.0
+offset_top = -269.0
+offset_right = -448.0
+offset_bottom = -261.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Les Agnettes"
+
+[node name="AsnieresGennevilliersLesCourtilles" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -470.0
+offset_top = -279.0
+offset_right = -462.0
+offset_bottom = -271.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Asnières Gennevilliers Les Courtilles"
+
+[node name="SevresLecourbe" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -384.0
+offset_top = 80.0
+offset_right = -376.0
+offset_bottom = 88.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Sèvres - Lecourbe"
+
+[node name="Pasteur" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -355.0
+offset_top = 88.0
+offset_right = -347.0
+offset_bottom = 96.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Pasteur"
+
+[node name="GareDeLEst" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -143.0
+offset_top = -132.0
+offset_right = -132.0
+offset_bottom = -124.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Gare de l'Est"
+
+[node name="GareDuNord" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -153.0
+offset_top = -157.0
+offset_right = -129.0
+offset_bottom = -149.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Gare du Nord"
+
+[node name="BarbesRochechouart" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -185.0
+offset_top = -171.0
+offset_right = -177.0
+offset_bottom = -161.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Barbès-Rochechouart"
+
+[node name="ChateauRouge" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -210.0
+offset_top = -186.0
+offset_right = -202.0
+offset_bottom = -178.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Château Rouge"
+
+[node name="MarcadetPoissoniers" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -211.0
+offset_top = -200.0
+offset_right = -203.0
+offset_bottom = -192.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Marcadet-Poissoniers"
+
+[node name="Simplon" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -220.0
+offset_top = -215.0
+offset_right = -212.0
+offset_bottom = -207.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Simplon"
+
+[node name="PorteDeClignancourt" type="Button" parent="CanvasLayer/Stations"]
+modulate = Color(0.258824, 0.2, 1, 1)
+offset_left = -231.0
+offset_top = -222.0
+offset_right = -223.0
+offset_bottom = -214.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Porte de Clignancourt"
+
+[node name="Nation" type="Button" parent="CanvasLayer/Stations"]
+offset_left = 5.0
+offset_top = 16.0
+offset_right = 24.0
+offset_bottom = 29.0
+script = ExtResource("2_0yunv")
+station_name = "Nation"
+
+[node name="Chatelet" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -224.0
+offset_top = -24.0
+offset_right = -216.0
+offset_bottom = -14.0
+script = ExtResource("2_0yunv")
+station_name = "Chatelet"
+
+[node name="SaintLazare" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -353.0
+offset_top = -112.0
+offset_right = -336.0
+offset_bottom = -104.0
+script = ExtResource("2_0yunv")
+station_name = "Saint-Lazare"
+
+[node name="EndScreen" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("8_ommto")
+
+[node name="ColorRect" type="ColorRect" parent="EndScreen"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.388235, 0.309804, 1, 1)
+
+[node name="EndPage" type="VBoxContainer" parent="EndScreen"]
+
+[node name="EndScoreLabel" type="Label" parent="EndScreen/EndPage"]
+layout_mode = 2
+size_flags_stretch_ratio = 5.0
+theme_override_font_sizes/font_size = 50
+
+[node name="Button" type="Button" parent="EndScreen/EndPage"]
+layout_mode = 2
+text = "Restart"
+
+[node name="AddScoreComponent" type="HBoxContainer" parent="EndScreen/EndPage"]
+layout_mode = 2
+
+[node name="NameScoreEdit" type="LineEdit" parent="EndScreen/EndPage/AddScoreComponent"]
+layout_mode = 2
+text = "Cécile"
+placeholder_text = "Pseudo"
+
+[node name="AddScoreLabel" type="Label" parent="EndScreen/EndPage/AddScoreComponent"]
+layout_mode = 2
+text = "3"
+
+[node name="AddScoreButton" type="Button" parent="EndScreen/EndPage/AddScoreComponent"]
+layout_mode = 2
+text = "Ajouter"
+
+[node name="LeaderBoardPage" type="VBoxContainer" parent="EndScreen/EndPage"]
+layout_mode = 2
+script = ExtResource("5_jojgj")
+
+[node name="Sounds" type="Node2D" parent="."]
+
+[node name="FailSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("5_g0up5")
+
+[node name="SuccessSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("6_68hms")
+
+[connection signal="end_game" from="." to="EndScreen" method="_on_map_scene_end_game"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="EndScreen/EndPage/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="EndScreen/EndPage/Button" to="EndScreen" method="_on_button_pressed"]
+[connection signal="pressed" from="EndScreen/EndPage/AddScoreComponent/AddScoreButton" to="EndScreen" method="_on_add_score_button_pressed"]
