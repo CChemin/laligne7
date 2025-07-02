@@ -843,12 +843,30 @@ station_name = "Porte de Bagnolet"
 
 [node name="Gambetta" type="Button" parent="CanvasLayer/Stations"]
 offset_left = 31.0
-offset_top = -59.0
+offset_top = -65.0
 offset_right = 39.0
 offset_bottom = -51.0
 mouse_default_cursor_shape = 2
 script = ExtResource("2_0yunv")
 station_name = "Gambetta"
+
+[node name="Pelleport" type="Button" parent="CanvasLayer/Stations"]
+offset_left = 57.0
+offset_top = -85.0
+offset_right = 65.0
+offset_bottom = -77.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Pelleport"
+
+[node name="SaintFargeau" type="Button" parent="CanvasLayer/Stations"]
+offset_left = 74.0
+offset_top = -99.0
+offset_right = 82.0
+offset_bottom = -91.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Saint-Fargeau"
 
 [node name="RueSaintMaur" type="Button" parent="CanvasLayer/Stations"]
 offset_left = -29.0
