@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bubyrnd21omu6"]
+[gd_scene load_steps=9 format=3 uid="uid://bubyrnd21omu6"]
 
 [ext_resource type="Texture2D" uid="uid://ce0v7v8vofqye" path="res://assets/maps/m_paris_vierge_large.jpg" id="1_nrbkr"]
 [ext_resource type="Script" path="res://scripts/GameState.gd" id="1_secbn"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" path="res://scripts/leader_board_page.gd" id="5_jojgj"]
 [ext_resource type="AudioStream" uid="uid://ck85vru5f2ptq" path="res://assets/sounds/level-up-3-199576.mp3" id="6_68hms"]
 [ext_resource type="Script" path="res://scripts/EndScreen.gd" id="8_ommto"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pk2by"]
 
 [node name="MapScene" type="Node2D"]
 position = Vector2(687, 331)
@@ -370,6 +372,7 @@ offset_top = -28.0
 offset_right = -181.0
 offset_bottom = -20.0
 mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_pk2by")
 script = ExtResource("2_0yunv")
 station_name = "Hôtel de Ville"
 
