@@ -493,6 +493,114 @@ mouse_default_cursor_shape = 2
 script = ExtResource("2_0yunv")
 station_name = "Pigalle"
 
+[node name="AssembleeNationale" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -388.0
+offset_top = -5.0
+offset_right = -380.0
+offset_bottom = 3.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Assemblée Nationale"
+
+[node name="Solferino" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -369.0
+offset_top = 10.0
+offset_right = -361.0
+offset_bottom = 18.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Solférino"
+
+[node name="RueDuBac" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -348.0
+offset_top = 24.0
+offset_right = -340.0
+offset_bottom = 32.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Rue du Bac"
+
+[node name="Rennes" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -311.0
+offset_top = 51.0
+offset_right = -303.0
+offset_bottom = 59.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Rennes"
+
+[node name="NotreDameDesChamps" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -291.0
+offset_top = 70.0
+offset_right = -283.0
+offset_bottom = 78.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Notre-Dame-des-Champs"
+
+[node name="Falguiere" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -346.0
+offset_top = 82.0
+offset_right = -338.0
+offset_bottom = 90.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Falguière"
+
+[node name="Volontaires" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -384.0
+offset_top = 109.0
+offset_right = -376.0
+offset_bottom = 117.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Volontaires"
+
+[node name="Vaugirard" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -403.0
+offset_top = 123.0
+offset_right = -395.0
+offset_bottom = 131.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Vaugirard"
+
+[node name="Convention" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -423.0
+offset_top = 138.0
+offset_right = -415.0
+offset_bottom = 146.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Convention"
+
+[node name="PorteDeVersailles" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -445.0
+offset_top = 153.0
+offset_right = -437.0
+offset_bottom = 161.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Porte de Versailles"
+
+[node name="CorentinCelton" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -465.0
+offset_top = 168.0
+offset_right = -457.0
+offset_bottom = 176.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Corentin Celton"
+
+[node name="MairieDIssy" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -483.0
+offset_top = 180.0
+offset_right = -475.0
+offset_bottom = 188.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Mairie d'Issy"
+
 [node name="Anvers" type="Button" parent="CanvasLayer/Stations"]
 offset_left = -224.0
 offset_top = -172.0
@@ -1906,18 +2014,99 @@ script = ExtResource("2_0yunv")
 station_name = "Château Rouge"
 
 [node name="MarcadetPoissoniers" type="Button" parent="CanvasLayer/Stations"]
-offset_left = -211.0
+offset_left = -209.0
 offset_top = -200.0
-offset_right = -203.0
+offset_right = -201.0
 offset_bottom = -192.0
 mouse_default_cursor_shape = 2
 script = ExtResource("2_0yunv")
 station_name = "Marcadet-Poissoniers"
 
-[node name="Simplon" type="Button" parent="CanvasLayer/Stations"]
-offset_left = -220.0
+[node name="MarxDormoy" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -140.0
+offset_top = -202.0
+offset_right = -132.0
+offset_bottom = -194.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Simplon"
+
+[node name="PorteDeLaChapelle" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -139.0
 offset_top = -215.0
-offset_right = -212.0
+offset_right = -131.0
+offset_bottom = -207.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Porte de la Chapelle"
+
+[node name="JulesJoffrin" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -236.0
+offset_top = -200.0
+offset_right = -228.0
+offset_bottom = -192.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Jules Joffrin"
+
+[node name="LamarckCaulaincourt" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -258.0
+offset_top = -198.0
+offset_right = -250.0
+offset_bottom = -190.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Lamarck - Caulaincourt"
+
+[node name="Abbesses" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -259.0
+offset_top = -184.0
+offset_right = -251.0
+offset_bottom = -176.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Abbesses"
+
+[node name="SaintGeorges" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -259.0
+offset_top = -149.0
+offset_right = -251.0
+offset_bottom = -141.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Saint-Georges"
+
+[node name="NotreDameDeLorette" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -267.0
+offset_top = -126.0
+offset_right = -259.0
+offset_bottom = -118.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Notre-Dame-de-Lorette"
+
+[node name="TriniteDEstienneDOrves" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -313.0
+offset_top = -126.0
+offset_right = -305.0
+offset_bottom = -118.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Trinité - d'Estienne d'Orves"
+
+[node name="Concorde" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -392.0
+offset_top = -35.0
+offset_right = -380.0
+offset_bottom = -25.0
+mouse_default_cursor_shape = 2
+script = ExtResource("2_0yunv")
+station_name = "Concorde"
+
+[node name="Simplon" type="Button" parent="CanvasLayer/Stations"]
+offset_left = -219.0
+offset_top = -215.0
+offset_right = -211.0
 offset_bottom = -207.0
 mouse_default_cursor_shape = 2
 script = ExtResource("2_0yunv")
