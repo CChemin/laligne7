@@ -2161,6 +2161,15 @@ size_flags_vertical = 3
 color = Color(0.388235, 0.309804, 1, 1)
 
 [node name="EndPage" type="VBoxContainer" parent="EndScreen"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -75.5
+offset_right = 75.5
+offset_bottom = 143.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
 
 [node name="EndScoreLabel" type="Label" parent="EndScreen/EndPage"]
 layout_mode = 2
