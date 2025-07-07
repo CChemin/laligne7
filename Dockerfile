@@ -13,7 +13,7 @@ RUN apt-get update && \
 
 COPY . .
 
-RUN godot --headless --export-release Web
+RUN mkdir build/ && godot --headless --export-release Web
 
 
 FROM nginx:latest
